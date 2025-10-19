@@ -163,7 +163,7 @@ export default function Home() {
             </a>
             
             <a 
-              href="https://github.com/vdntruong"
+              href="https://github.com/vdntruong?tab=repositories"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 px-8 py-4 bg-slate-700 hover:bg-slate-600 text-white rounded-lg transition-all hover:scale-105 font-semibold"
@@ -180,13 +180,13 @@ export default function Home() {
         <div className="max-w-6xl mx-auto text-center text-slate-400">
           <p>© 2025 Pete. Built with Next.js & Tailwind CSS</p>
           <div className="flex gap-6 justify-center mt-4">
-            <a href="https://github.com/vdntruong" className="hover:text-white transition-colors">
+            <a href="https://github.com/vdntruong" target="_blank" className="hover:text-white transition-colors">
               <Github className="w-5 h-5" />
             </a>
-            <a href="https://linkedin.com/in/vdntruong" className="hover:text-white transition-colors">
+            <a href="https://linkedin.com/in/vdntruong" target="_blank" className="hover:text-white transition-colors">
               <Linkedin className="w-5 h-5" />
             </a>
-            <a href="mailto:truongvodainhat@gmail.com" className="hover:text-white transition-colors">
+            <a href="mailto:truongvodainhat@gmail.com" target="_blank" className="hover:text-white transition-colors">
               <Mail className="w-5 h-5" />
             </a>
           </div>
