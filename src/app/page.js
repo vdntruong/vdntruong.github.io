@@ -1,8 +1,11 @@
 'use client';
 
-import { Github, Linkedin, Mail, ExternalLink, Code2, Server, Container, Cloud, Boxes, Database, GitBranch } from 'lucide-react';
+import { useState } from 'react';
+import { Github, Linkedin, Mail, ExternalLink, Code2, Server, Container, Cloud, Boxes, Database, GitBranch, Scissors, ChevronDown, FolderOpen } from 'lucide-react';
+import Link from 'next/link';
 
 export default function Home() {
+  const [showProjectsMenu, setShowProjectsMenu] = useState(false);
   const skills = [
     { name: 'Golang', icon: Code2, color: 'text-cyan-400', description: 'Primary language' },
     { name: 'Python', icon: Code2, color: 'text-blue-400', description: 'Backend & Data' },
@@ -19,7 +22,36 @@ export default function Home() {
       {/* Navigation */}
       <nav className="fixed top-0 w-full bg-slate-900/80 backdrop-blur-sm border-b border-slate-700/50 z-50">
         <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-          <h1 className="text-xl font-bold text-white"></h1>
+          <div className="flex items-center gap-6">
+            <h1 className="text-xl font-bold text-white">Pete</h1>
+            
+            {/* Projects Dropdown */}
+            <div className="relative">
+              <button
+                onClick={() => setShowProjectsMenu(!showProjectsMenu)}
+                onBlur={() => setTimeout(() => setShowProjectsMenu(false), 200)}
+                className="flex items-center gap-2 text-slate-300 hover:text-white transition-colors"
+              >
+                <FolderOpen className="w-4 h-4" />
+                Projects
+                <ChevronDown className={`w-4 h-4 transition-transform ${showProjectsMenu ? 'rotate-180' : ''}`} />
+              </button>
+              
+              {showProjectsMenu && (
+                <div className="absolute top-full mt-2 left-0 bg-slate-800/95 backdrop-blur-sm rounded-lg shadow-xl border border-slate-700 py-2 min-w-[200px]">
+                  <Link
+                    href="/handmade"
+                    className="flex items-center gap-3 px-4 py-2 text-slate-300 hover:text-white hover:bg-slate-700/50 transition-colors"
+                  >
+                    <Scissors className="w-4 h-4" />
+                    <span>Handmade Crafts</span>
+                  </Link>
+                  {/* Add more project links here in the future */}
+                </div>
+              )}
+            </div>
+          </div>
+          
           <div className="flex gap-4">
             <a href="#about" className="text-slate-300 hover:text-white transition-colors">About</a>
             <a href="#skills" className="text-slate-300 hover:text-white transition-colors">Skills</a>
